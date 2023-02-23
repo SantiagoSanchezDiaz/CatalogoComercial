@@ -62,9 +62,10 @@
             // lbAgregarModificar
             // 
             this.lbAgregarModificar.AutoSize = true;
-            this.lbAgregarModificar.Location = new System.Drawing.Point(195, 20);
+            this.lbAgregarModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAgregarModificar.Location = new System.Drawing.Point(192, 9);
             this.lbAgregarModificar.Name = "lbAgregarModificar";
-            this.lbAgregarModificar.Size = new System.Drawing.Size(51, 13);
+            this.lbAgregarModificar.Size = new System.Drawing.Size(124, 31);
             this.lbAgregarModificar.TabIndex = 1;
             this.lbAgregarModificar.Text = "Depende";
             // 
@@ -187,6 +188,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(253, 48);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(216, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
@@ -198,6 +200,7 @@
             this.bAgregarModificar.TabIndex = 17;
             this.bAgregarModificar.Text = "Depende";
             this.bAgregarModificar.UseVisualStyleBackColor = true;
+            this.bAgregarModificar.Click += new System.EventHandler(this.bAgregarModificar_Click);
             // 
             // bCancelar
             // 
@@ -238,6 +241,7 @@
             this.MinimumSize = new System.Drawing.Size(499, 312);
             this.Name = "AgregarModificar";
             this.Text = "Carga de Datos";
+            this.Load += new System.EventHandler(this.AgregarModificar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

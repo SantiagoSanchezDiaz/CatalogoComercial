@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 using Datos;
+using System.Data.SqlTypes;
 
 namespace Negocio
 {
@@ -31,8 +32,7 @@ namespace Negocio
 					aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
 					aux.Categoria.Detalle = (string)datos.Lector["Categoria"];
 					aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-					aux.Precio = (float)datos.Lector["Precio"];
-
+					aux.Precio = (decimal)datos.Lector["Precio"];
 					lista.Add(aux);
                 }
 				return lista;
@@ -47,5 +47,29 @@ namespace Negocio
 			}
         }
 
+		public void agregar(Articulo art)
+		{
+			AccesoDatos datos = new AccesoDatos();
+			try
+			{
+
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+        public void modificar(Articulo art)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

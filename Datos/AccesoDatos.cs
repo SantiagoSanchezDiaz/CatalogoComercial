@@ -31,9 +31,9 @@ namespace Datos
 
         public void ejecutarConsulta()
         {
-            comando.Connection = conexion;
             try
             {
+                comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
             }

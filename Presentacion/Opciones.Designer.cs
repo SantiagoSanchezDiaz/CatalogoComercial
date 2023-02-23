@@ -95,12 +95,12 @@
             // 
             this.tbFiltro.Location = new System.Drawing.Point(422, 49);
             this.tbFiltro.Name = "tbFiltro";
-            this.tbFiltro.Size = new System.Drawing.Size(101, 20);
+            this.tbFiltro.Size = new System.Drawing.Size(166, 20);
             this.tbFiltro.TabIndex = 5;
             // 
             // bBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(544, 45);
+            this.bBuscar.Location = new System.Drawing.Point(605, 45);
             this.bBuscar.Name = "bBuscar";
             this.bBuscar.Size = new System.Drawing.Size(126, 28);
             this.bBuscar.TabIndex = 6;
@@ -109,7 +109,7 @@
             // 
             // bDetalle
             // 
-            this.bDetalle.Location = new System.Drawing.Point(544, 99);
+            this.bDetalle.Location = new System.Drawing.Point(605, 111);
             this.bDetalle.Name = "bDetalle";
             this.bDetalle.Size = new System.Drawing.Size(126, 56);
             this.bDetalle.TabIndex = 7;
@@ -120,21 +120,23 @@
             // 
             this.pbImagenOpciones.Location = new System.Drawing.Point(29, 85);
             this.pbImagenOpciones.Name = "pbImagenOpciones";
-            this.pbImagenOpciones.Size = new System.Drawing.Size(188, 169);
+            this.pbImagenOpciones.Size = new System.Drawing.Size(210, 216);
+            this.pbImagenOpciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenOpciones.TabIndex = 8;
             this.pbImagenOpciones.TabStop = false;
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(223, 85);
+            this.dgvArticulos.Location = new System.Drawing.Point(245, 85);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(300, 169);
+            this.dgvArticulos.Size = new System.Drawing.Size(343, 216);
             this.dgvArticulos.TabIndex = 9;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // bAgregar
             // 
-            this.bAgregar.Location = new System.Drawing.Point(29, 260);
+            this.bAgregar.Location = new System.Drawing.Point(26, 307);
             this.bAgregar.Name = "bAgregar";
             this.bAgregar.Size = new System.Drawing.Size(126, 27);
             this.bAgregar.TabIndex = 10;
@@ -144,16 +146,17 @@
             // 
             // bModificar
             // 
-            this.bModificar.Location = new System.Drawing.Point(213, 260);
+            this.bModificar.Location = new System.Drawing.Point(210, 307);
             this.bModificar.Name = "bModificar";
             this.bModificar.Size = new System.Drawing.Size(126, 27);
             this.bModificar.TabIndex = 11;
             this.bModificar.Text = "Modificar";
             this.bModificar.UseVisualStyleBackColor = true;
+            this.bModificar.Click += new System.EventHandler(this.bModificar_Click);
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(397, 260);
+            this.bEliminar.Location = new System.Drawing.Point(394, 307);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(126, 27);
             this.bEliminar.TabIndex = 12;
@@ -162,7 +165,7 @@
             // 
             // bVolverInicio
             // 
-            this.bVolverInicio.Location = new System.Drawing.Point(544, 182);
+            this.bVolverInicio.Location = new System.Drawing.Point(605, 205);
             this.bVolverInicio.Name = "bVolverInicio";
             this.bVolverInicio.Size = new System.Drawing.Size(126, 56);
             this.bVolverInicio.TabIndex = 13;
@@ -173,7 +176,7 @@
             // lbAclaraciones
             // 
             this.lbAclaraciones.AutoSize = true;
-            this.lbAclaraciones.Location = new System.Drawing.Point(541, 267);
+            this.lbAclaraciones.Location = new System.Drawing.Point(538, 314);
             this.lbAclaraciones.Name = "lbAclaraciones";
             this.lbAclaraciones.Size = new System.Drawing.Size(68, 13);
             this.lbAclaraciones.TabIndex = 14;
@@ -182,9 +185,10 @@
             // lbOpcionesTitulo
             // 
             this.lbOpcionesTitulo.AutoSize = true;
-            this.lbOpcionesTitulo.Location = new System.Drawing.Point(223, 13);
+            this.lbOpcionesTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOpcionesTitulo.Location = new System.Drawing.Point(287, 9);
             this.lbOpcionesTitulo.Name = "lbOpcionesTitulo";
-            this.lbOpcionesTitulo.Size = new System.Drawing.Size(52, 13);
+            this.lbOpcionesTitulo.Size = new System.Drawing.Size(129, 31);
             this.lbOpcionesTitulo.TabIndex = 15;
             this.lbOpcionesTitulo.Text = "Opciones";
             // 
@@ -192,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 303);
+            this.ClientSize = new System.Drawing.Size(754, 350);
             this.Controls.Add(this.lbOpcionesTitulo);
             this.Controls.Add(this.lbAclaraciones);
             this.Controls.Add(this.bVolverInicio);
@@ -210,10 +214,9 @@
             this.Controls.Add(this.cobCampo);
             this.Controls.Add(this.lbCampo);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(714, 342);
-            this.MinimumSize = new System.Drawing.Size(714, 342);
             this.Name = "Opciones";
-            this.Text = "AgregarModificarEliminar";
+            this.Text = "Opciones";
+            this.Load += new System.EventHandler(this.Opciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenOpciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);

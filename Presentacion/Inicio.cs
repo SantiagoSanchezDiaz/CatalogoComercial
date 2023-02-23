@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace Presentacion
 {
@@ -21,8 +23,8 @@ namespace Presentacion
 
         private void bOpciones_Click(object sender, EventArgs e)
         {
-            Opciones form = new Opciones();
-            form.ShowDialog();
+            Opciones opciones = new Opciones();
+            opciones.ShowDialog();
         }
 
         private void bSalir_Click(object sender, EventArgs e)

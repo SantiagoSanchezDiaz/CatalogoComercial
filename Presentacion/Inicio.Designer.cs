@@ -86,6 +86,7 @@
             this.pbInicio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pbInicio.Name = "pbInicio";
             this.pbInicio.Size = new System.Drawing.Size(251, 228);
+            this.pbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbInicio.TabIndex = 3;
             this.pbInicio.TabStop = false;
             // 
