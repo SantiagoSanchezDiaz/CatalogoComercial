@@ -26,13 +26,14 @@ namespace Presentacion
             this.Close();
         }
 
-        private void Opciones_Load(object sender, EventArgs e)
+        public void actualizar()
         {
             ArticuloNegocio aux = new ArticuloNegocio();
             try
             {
                 listaArticulo = aux.listar();
                 dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["Id"].Visible = false;
                 dgvArticulos.Columns["Descripcion"].Visible = false;
                 dgvArticulos.Columns["Marca"].Visible = false;
                 dgvArticulos.Columns["Categoria"].Visible = false;
@@ -43,13 +44,28 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+        }
+
+        private void Opciones_Load(object sender, EventArgs e)
+        {
+            actualizar();
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.ImagenUrl);
+            try
+            {
+                if(dgvArticulos.CurrentRow.DataBoundItem != null)
+                {
+                    Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    cargarImagen(seleccionado.ImagenUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
         
         private void cargarImagen(string Url)
@@ -66,13 +82,38 @@ namespace Presentacion
 
         private void bAgregar_Click(object sender, EventArgs e)
         {
-            AgregarModificar form = new AgregarModificar("Agregar");
+            AgregarModificar form = new AgregarModificar();
             form.ShowDialog();
+            actualizar();
         }
+
         private void bModificar_Click(object sender, EventArgs e)
         {
-            AgregarModificar form = new AgregarModificar("Modificar");
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            AgregarModificar form = new AgregarModificar(seleccionado);
             form.ShowDialog();
+            actualizar();
+        }
+
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult resultado = MessageBox.Show("¿De verdad quieres eliminarlo?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(resultado == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    actualizar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

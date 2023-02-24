@@ -44,10 +44,10 @@
             this.cobMarca = new System.Windows.Forms.ComboBox();
             this.cobCategoria = new System.Windows.Forms.ComboBox();
             this.bImagen = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbCargaDatos = new System.Windows.Forms.PictureBox();
             this.bAgregarModificar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCargaDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // lbNombre
@@ -129,6 +129,7 @@
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(148, 20);
             this.tbNombre.TabIndex = 8;
+            this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
             // tbCodigo
             // 
@@ -157,9 +158,11 @@
             this.tbUrlImagen.Name = "tbUrlImagen";
             this.tbUrlImagen.Size = new System.Drawing.Size(121, 20);
             this.tbUrlImagen.TabIndex = 12;
+            this.tbUrlImagen.Leave += new System.EventHandler(this.tbUrlImagen_Leave);
             // 
             // cobMarca
             // 
+            this.cobMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cobMarca.FormattingEnabled = true;
             this.cobMarca.Location = new System.Drawing.Point(98, 126);
             this.cobMarca.Name = "cobMarca";
@@ -168,6 +171,7 @@
             // 
             // cobCategoria
             // 
+            this.cobCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cobCategoria.FormattingEnabled = true;
             this.cobCategoria.Location = new System.Drawing.Point(98, 153);
             this.cobCategoria.Name = "cobCategoria";
@@ -183,14 +187,14 @@
             this.bImagen.Text = "+";
             this.bImagen.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pbCargaDatos
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(253, 48);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(216, 154);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
+            this.pbCargaDatos.Location = new System.Drawing.Point(253, 48);
+            this.pbCargaDatos.Name = "pbCargaDatos";
+            this.pbCargaDatos.Size = new System.Drawing.Size(216, 154);
+            this.pbCargaDatos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCargaDatos.TabIndex = 16;
+            this.pbCargaDatos.TabStop = false;
             // 
             // bAgregarModificar
             // 
@@ -219,7 +223,7 @@
             this.ClientSize = new System.Drawing.Size(483, 273);
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.bAgregarModificar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbCargaDatos);
             this.Controls.Add(this.bImagen);
             this.Controls.Add(this.cobCategoria);
             this.Controls.Add(this.cobMarca);
@@ -242,7 +246,7 @@
             this.Name = "AgregarModificar";
             this.Text = "Carga de Datos";
             this.Load += new System.EventHandler(this.AgregarModificar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCargaDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +270,7 @@
         private System.Windows.Forms.ComboBox cobMarca;
         private System.Windows.Forms.ComboBox cobCategoria;
         private System.Windows.Forms.Button bImagen;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbCargaDatos;
         private System.Windows.Forms.Button bAgregarModificar;
         private System.Windows.Forms.Button bCancelar;
     }
