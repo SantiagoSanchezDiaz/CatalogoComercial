@@ -238,6 +238,7 @@
             this.MinimumSize = new System.Drawing.Size(940, 429);
             this.Name = "Inicio";
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbInicio)).EndInit();
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();

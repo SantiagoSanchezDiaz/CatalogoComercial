@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,6 +117,31 @@ namespace Presentacion
             try
             {
                 pbCargaDatos.Load(tbUrlImagen.Text);
+            }
+            catch (Exception)
+            {
+                pbCargaDatos.Load("https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
+            }
+        }
+        /*  
+        Esta linea va en el designer --->  this.bImagen.Click += new System.EventHandler(this.bImagen_Click);
+        private void bImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog archivo = new OpenFileDialog();
+            if(archivo.ShowDialog() == DialogResult.OK)
+            {
+                tbUrlImagen.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+
+                File.Copy();
+            }
+        }
+        */
+        private void cargarImagen(string Url)
+        {
+            try
+            {
+                pbCargaDatos.Load(Url);
             }
             catch (Exception)
             {

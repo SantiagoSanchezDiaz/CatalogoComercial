@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using Datos;
 
 namespace Presentacion
 {
@@ -25,11 +26,47 @@ namespace Presentacion
         {
             Opciones opciones = new Opciones();
             opciones.ShowDialog();
+            cargarUltimoArt();
         }
 
         private void bSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+            cargarUltimoArt();
+        }
+
+        private void cargarUltimoArt()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo art = negocio.ultimoRegistro();
+            string line1 = "El nombre del Artículo es " + art.Nombre;
+            string line2 = "El código del Artículo es " + art.Codigo;
+            string line3 = "La descripción del Artículo es " + art.Descripcion;
+            string line4 = "La marca es " + art.Marca.Detalle + " y su categoría es " + art.Categoria.Detalle;
+            string line5 = "Su precio actual es " + art.Precio;
+            cargarImagen(art.ImagenUrl);
+            lvUltimoArticulo.Items.Clear();
+            lvUltimoArticulo.Items.Add(line1);
+            lvUltimoArticulo.Items.Add(line2);
+            lvUltimoArticulo.Items.Add(line3);
+            lvUltimoArticulo.Items.Add(line4);
+            lvUltimoArticulo.Items.Add(line5);
+        }
+
+        private void cargarImagen(string url)
+        {
+            try
+            {
+                pbInicio.Load(url);
+            }
+            catch (Exception)
+            {
+                pbInicio.Load("https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
+            }
         }
     }
 }

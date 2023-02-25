@@ -115,5 +115,36 @@ namespace Negocio
 				datos.cerrarConexion();
 			}
 		}
+		public Articulo ultimoRegistro()
+		{
+			Articulo ultimoArt = new Articulo();
+			AccesoDatos datos = new AccesoDatos();
+			try
+			{
+				datos.setearConsulta("Select top (1) A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as Marca, A.IdCategoria, C.Descripcion as Categoria, A.ImagenUrl, A.Precio From ARTICULOS A, CATEGORIAS C, MARCAS M Where A.IdMarca = M.Id and A.IdCategoria = C.Id Order by A.Id desc");
+				datos.ejecutarConsulta();
+                ultimoArt.Marca = new Marca();
+                ultimoArt.Categoria = new Categoria();
+                ultimoArt.Id = (int)datos.Lector["Id"];
+                ultimoArt.Codigo = (string)datos.Lector["Codigo"];
+                ultimoArt.Nombre = (string)datos.Lector["Nombre"];
+                ultimoArt.Descripcion = (string)datos.Lector["Descripcion"];
+                ultimoArt.Marca.Id = (int)datos.Lector["IdMarca"];
+                ultimoArt.Marca.Detalle = (string)datos.Lector["Marca"];
+                ultimoArt.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                ultimoArt.Categoria.Detalle = (string)datos.Lector["Categoria"];
+                ultimoArt.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                ultimoArt.Precio = (decimal)datos.Lector["Precio"];
+                return ultimoArt;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+			finally
+			{
+				datos.cerrarConexion();
+			}
+		}
     }
 }
