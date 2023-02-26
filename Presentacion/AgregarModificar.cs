@@ -94,7 +94,7 @@ namespace Presentacion
                     cobMarca.SelectedValue = articulo.Marca.Id;
                     cobCategoria.SelectedValue = articulo.Categoria.Id;
                     tbUrlImagen.Text = articulo.ImagenUrl;
-                    pbCargaDatos.Load(tbUrlImagen.Text);
+                    cargarImagen(tbUrlImagen.Text);
                     tbDescripcion.Text = articulo.Descripcion;
                 }
             }
@@ -114,15 +114,9 @@ namespace Presentacion
 
         private void tbUrlImagen_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                pbCargaDatos.Load(tbUrlImagen.Text);
-            }
-            catch (Exception)
-            {
-                pbCargaDatos.Load("https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
-            }
+            cargarImagen(tbUrlImagen.Text);
         }
+
         /*  
         Esta linea va en el designer --->  this.bImagen.Click += new System.EventHandler(this.bImagen_Click);
         private void bImagen_Click(object sender, EventArgs e)
@@ -147,6 +141,26 @@ namespace Presentacion
             {
                 pbCargaDatos.Load("https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
             }
+        }
+
+        private void lbAgregarModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbCodigo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbPrecio_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -51,41 +51,54 @@
             // lbCatalogo
             // 
             this.lbCatalogo.AutoSize = true;
-            this.lbCatalogo.Font = new System.Drawing.Font("Perpetua", 28F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCatalogo.BackColor = System.Drawing.Color.Transparent;
+            this.lbCatalogo.Font = new System.Drawing.Font("Perpetua", 32F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCatalogo.ForeColor = System.Drawing.Color.Indigo;
             this.lbCatalogo.Location = new System.Drawing.Point(14, 42);
             this.lbCatalogo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCatalogo.Name = "lbCatalogo";
-            this.lbCatalogo.Size = new System.Drawing.Size(291, 43);
+            this.lbCatalogo.Size = new System.Drawing.Size(333, 49);
             this.lbCatalogo.TabIndex = 0;
             this.lbCatalogo.Text = "Catálogo Comercial";
             // 
             // lbUltimoArticulo
             // 
             this.lbUltimoArticulo.AutoSize = true;
-            this.lbUltimoArticulo.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUltimoArticulo.BackColor = System.Drawing.Color.Transparent;
+            this.lbUltimoArticulo.Font = new System.Drawing.Font("Perpetua", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUltimoArticulo.ForeColor = System.Drawing.Color.Indigo;
             this.lbUltimoArticulo.Location = new System.Drawing.Point(15, 98);
             this.lbUltimoArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbUltimoArticulo.Name = "lbUltimoArticulo";
-            this.lbUltimoArticulo.Size = new System.Drawing.Size(226, 18);
+            this.lbUltimoArticulo.Size = new System.Drawing.Size(268, 22);
             this.lbUltimoArticulo.TabIndex = 1;
             this.lbUltimoArticulo.Text = "Último artículo ingresado al catálogo";
             // 
             // lvUltimoArticulo
             // 
+            this.lvUltimoArticulo.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lvUltimoArticulo.BackgroundImage = global::Presentacion.Properties.Resources.Verde_Petroleo;
+            this.lvUltimoArticulo.BackgroundImageTiled = true;
+            this.lvUltimoArticulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lvUltimoArticulo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvUltimoArticulo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lvUltimoArticulo.HideSelection = false;
+            this.lvUltimoArticulo.LabelWrap = false;
             this.lvUltimoArticulo.Location = new System.Drawing.Point(15, 126);
             this.lvUltimoArticulo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lvUltimoArticulo.Name = "lvUltimoArticulo";
-            this.lvUltimoArticulo.Size = new System.Drawing.Size(425, 228);
+            this.lvUltimoArticulo.Size = new System.Drawing.Size(452, 195);
             this.lvUltimoArticulo.TabIndex = 2;
             this.lvUltimoArticulo.UseCompatibleStateImageBehavior = false;
+            this.lvUltimoArticulo.View = System.Windows.Forms.View.List;
             // 
             // pbInicio
             // 
-            this.pbInicio.Location = new System.Drawing.Point(448, 126);
+            this.pbInicio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbInicio.Location = new System.Drawing.Point(475, 126);
             this.pbInicio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pbInicio.Name = "pbInicio";
-            this.pbInicio.Size = new System.Drawing.Size(251, 228);
+            this.pbInicio.Size = new System.Drawing.Size(214, 195);
             this.pbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbInicio.TabIndex = 3;
             this.pbInicio.TabStop = false;
@@ -93,11 +106,13 @@
             // lbListado
             // 
             this.lbListado.AutoSize = true;
-            this.lbListado.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbListado.Location = new System.Drawing.Point(737, 156);
+            this.lbListado.BackColor = System.Drawing.Color.Transparent;
+            this.lbListado.Font = new System.Drawing.Font("Perpetua", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListado.ForeColor = System.Drawing.Color.Indigo;
+            this.lbListado.Location = new System.Drawing.Point(697, 152);
             this.lbListado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbListado.Name = "lbListado";
-            this.lbListado.Size = new System.Drawing.Size(156, 18);
+            this.lbListado.Size = new System.Drawing.Size(173, 21);
             this.lbListado.TabIndex = 4;
             this.lbListado.Text = "---> Listado de Artículos";
             // 
@@ -110,7 +125,7 @@
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.msMenu.Size = new System.Drawing.Size(924, 24);
+            this.msMenu.Size = new System.Drawing.Size(881, 24);
             this.msMenu.TabIndex = 5;
             this.msMenu.Text = "msMenu";
             // 
@@ -134,21 +149,26 @@
             // 
             // bOpciones
             // 
+            this.bOpciones.BackColor = System.Drawing.Color.Transparent;
+            this.bOpciones.BackgroundImage = global::Presentacion.Properties.Resources.Verde_Petroleo;
             this.bOpciones.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bOpciones.Location = new System.Drawing.Point(730, 89);
+            this.bOpciones.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bOpciones.Location = new System.Drawing.Point(696, 89);
             this.bOpciones.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.bOpciones.Name = "bOpciones";
-            this.bOpciones.Size = new System.Drawing.Size(172, 36);
+            this.bOpciones.Size = new System.Drawing.Size(181, 36);
             this.bOpciones.TabIndex = 6;
             this.bOpciones.Text = "Opciones del Catálogo";
-            this.bOpciones.UseVisualStyleBackColor = true;
+            this.bOpciones.UseVisualStyleBackColor = false;
             this.bOpciones.Click += new System.EventHandler(this.bOpciones_Click);
             // 
             // lbHorario
             // 
             this.lbHorario.AutoSize = true;
-            this.lbHorario.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHorario.Location = new System.Drawing.Point(737, 42);
+            this.lbHorario.BackColor = System.Drawing.Color.Transparent;
+            this.lbHorario.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHorario.ForeColor = System.Drawing.Color.Indigo;
+            this.lbHorario.Location = new System.Drawing.Point(712, 59);
             this.lbHorario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbHorario.Name = "lbHorario";
             this.lbHorario.Size = new System.Drawing.Size(97, 18);
@@ -158,8 +178,10 @@
             // lbDesarrollo
             // 
             this.lbDesarrollo.AutoSize = true;
+            this.lbDesarrollo.BackColor = System.Drawing.Color.Transparent;
             this.lbDesarrollo.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDesarrollo.Location = new System.Drawing.Point(15, 359);
+            this.lbDesarrollo.ForeColor = System.Drawing.Color.Indigo;
+            this.lbDesarrollo.Location = new System.Drawing.Point(15, 333);
             this.lbDesarrollo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDesarrollo.Name = "lbDesarrollo";
             this.lbDesarrollo.Size = new System.Drawing.Size(628, 18);
@@ -170,53 +192,64 @@
             // lbAgregar
             // 
             this.lbAgregar.AutoSize = true;
-            this.lbAgregar.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAgregar.Location = new System.Drawing.Point(737, 208);
+            this.lbAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.lbAgregar.Font = new System.Drawing.Font("Perpetua", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAgregar.ForeColor = System.Drawing.Color.Indigo;
+            this.lbAgregar.Location = new System.Drawing.Point(697, 193);
             this.lbAgregar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbAgregar.Name = "lbAgregar";
-            this.lbAgregar.Size = new System.Drawing.Size(145, 18);
+            this.lbAgregar.Size = new System.Drawing.Size(160, 21);
             this.lbAgregar.TabIndex = 13;
             this.lbAgregar.Text = "---> Agregar Artículos";
             // 
             // lbModificar
             // 
             this.lbModificar.AutoSize = true;
-            this.lbModificar.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbModificar.Location = new System.Drawing.Point(737, 260);
+            this.lbModificar.BackColor = System.Drawing.Color.Transparent;
+            this.lbModificar.Font = new System.Drawing.Font("Perpetua", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbModificar.ForeColor = System.Drawing.Color.Indigo;
+            this.lbModificar.Location = new System.Drawing.Point(697, 234);
             this.lbModificar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbModificar.Name = "lbModificar";
-            this.lbModificar.Size = new System.Drawing.Size(152, 18);
+            this.lbModificar.Size = new System.Drawing.Size(170, 21);
             this.lbModificar.TabIndex = 14;
             this.lbModificar.Text = "---> Modificar Artículos";
             // 
             // lbEliminar
             // 
             this.lbEliminar.AutoSize = true;
-            this.lbEliminar.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEliminar.Location = new System.Drawing.Point(737, 312);
+            this.lbEliminar.BackColor = System.Drawing.Color.Transparent;
+            this.lbEliminar.Font = new System.Drawing.Font("Perpetua", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEliminar.ForeColor = System.Drawing.Color.Indigo;
+            this.lbEliminar.Location = new System.Drawing.Point(697, 275);
             this.lbEliminar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbEliminar.Name = "lbEliminar";
-            this.lbEliminar.Size = new System.Drawing.Size(147, 18);
+            this.lbEliminar.Size = new System.Drawing.Size(162, 21);
             this.lbEliminar.TabIndex = 15;
             this.lbEliminar.Text = "---> Eliminar Artículos";
             // 
             // bSalir
             // 
+            this.bSalir.BackColor = System.Drawing.Color.Transparent;
+            this.bSalir.BackgroundImage = global::Presentacion.Properties.Resources.Verde_Petroleo;
             this.bSalir.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSalir.Location = new System.Drawing.Point(721, 355);
+            this.bSalir.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bSalir.Location = new System.Drawing.Point(696, 329);
             this.bSalir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.bSalir.Name = "bSalir";
             this.bSalir.Size = new System.Drawing.Size(181, 27);
             this.bSalir.TabIndex = 16;
             this.bSalir.Text = "Salir del Programa";
-            this.bSalir.UseVisualStyleBackColor = true;
+            this.bSalir.UseVisualStyleBackColor = false;
             this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 390);
+            this.BackgroundImage = global::Presentacion.Properties.Resources.Fondo5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(881, 360);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.lbEliminar);
             this.Controls.Add(this.lbModificar);
@@ -234,8 +267,8 @@
             this.MainMenuStrip = this.msMenu;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(940, 429);
-            this.MinimumSize = new System.Drawing.Size(940, 429);
+            this.MaximumSize = new System.Drawing.Size(897, 399);
+            this.MinimumSize = new System.Drawing.Size(897, 399);
             this.Name = "Inicio";
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Inicio_Load);

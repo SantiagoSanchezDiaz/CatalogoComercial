@@ -55,7 +55,7 @@ namespace Presentacion
         {
             try
             {
-                if(dgvArticulos.CurrentRow.DataBoundItem != null)
+                if(dgvArticulos.CurrentRow != null)
                 {
                     Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     cargarImagen(seleccionado.ImagenUrl);
@@ -90,10 +90,15 @@ namespace Presentacion
         private void bModificar_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            AgregarModificar form = new AgregarModificar(seleccionado);
-            form.ShowDialog();
-            actualizar();
+            if(dgvArticulos.CurrentRow != null)
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                AgregarModificar form = new AgregarModificar(seleccionado);
+                form.ShowDialog();
+                actualizar();
+            }
+            else
+                lbAclaraciones.Text = "Seleccione una fila de la tabla";
         }
 
         private void bEliminar_Click(object sender, EventArgs e)
@@ -114,6 +119,26 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void bDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            if(dgvArticulos.CurrentRow != null)
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                Detalle form = new Detalle(seleccionado);
+                form.ShowDialog();
+            }
+            else
+            {
+                lbAclaraciones.Text = "Seleccione una fila de la tabla";
+            }
+        }
+
+        private void lbAclaraciones_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

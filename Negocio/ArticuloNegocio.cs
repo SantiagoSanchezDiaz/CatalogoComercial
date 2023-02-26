@@ -121,8 +121,9 @@ namespace Negocio
 			AccesoDatos datos = new AccesoDatos();
 			try
 			{
-				datos.setearConsulta("Select top (1) A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as Marca, A.IdCategoria, C.Descripcion as Categoria, A.ImagenUrl, A.Precio From ARTICULOS A, CATEGORIAS C, MARCAS M Where A.IdMarca = M.Id and A.IdCategoria = C.Id Order by A.Id desc");
+				datos.setearConsulta("Select top (1) A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as Marca, A.IdCategoria, C.Descripcion as Categoria, A.ImagenUrl, A.Precio From ARTICULOS A, CATEGORIAS C, MARCAS M Where A.IdMarca = M.Id and A.IdCategoria = C.Id Order By A.Id Desc");
 				datos.ejecutarConsulta();
+				datos.Lector.Read();
                 ultimoArt.Marca = new Marca();
                 ultimoArt.Categoria = new Categoria();
                 ultimoArt.Id = (int)datos.Lector["Id"];

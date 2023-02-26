@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Opciones));
             this.lbCampo = new System.Windows.Forms.Label();
             this.cobCampo = new System.Windows.Forms.ComboBox();
             this.cobCriterio = new System.Windows.Forms.ComboBox();
@@ -51,14 +52,19 @@
             // lbCampo
             // 
             this.lbCampo.AutoSize = true;
+            this.lbCampo.BackColor = System.Drawing.Color.Transparent;
+            this.lbCampo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCampo.ForeColor = System.Drawing.Color.Indigo;
             this.lbCampo.Location = new System.Drawing.Point(29, 52);
             this.lbCampo.Name = "lbCampo";
-            this.lbCampo.Size = new System.Drawing.Size(43, 13);
+            this.lbCampo.Size = new System.Drawing.Size(49, 13);
             this.lbCampo.TabIndex = 0;
             this.lbCampo.Text = "Campo:";
             // 
             // cobCampo
             // 
+            this.cobCampo.BackColor = System.Drawing.Color.Gainsboro;
+            this.cobCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cobCampo.FormattingEnabled = true;
             this.cobCampo.Location = new System.Drawing.Point(78, 50);
             this.cobCampo.Name = "cobCampo";
@@ -67,6 +73,8 @@
             // 
             // cobCriterio
             // 
+            this.cobCriterio.BackColor = System.Drawing.Color.Gainsboro;
+            this.cobCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cobCriterio.FormattingEnabled = true;
             this.cobCriterio.Location = new System.Drawing.Point(255, 49);
             this.cobCriterio.Name = "cobCriterio";
@@ -76,23 +84,30 @@
             // lbCriterio
             // 
             this.lbCriterio.AutoSize = true;
+            this.lbCriterio.BackColor = System.Drawing.Color.Transparent;
+            this.lbCriterio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCriterio.ForeColor = System.Drawing.Color.Indigo;
             this.lbCriterio.Location = new System.Drawing.Point(207, 52);
             this.lbCriterio.Name = "lbCriterio";
-            this.lbCriterio.Size = new System.Drawing.Size(42, 13);
+            this.lbCriterio.Size = new System.Drawing.Size(51, 13);
             this.lbCriterio.TabIndex = 2;
             this.lbCriterio.Text = "Criterio:";
             // 
             // lbFiltro
             // 
             this.lbFiltro.AutoSize = true;
+            this.lbFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.lbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFiltro.ForeColor = System.Drawing.Color.Indigo;
             this.lbFiltro.Location = new System.Drawing.Point(384, 53);
             this.lbFiltro.Name = "lbFiltro";
-            this.lbFiltro.Size = new System.Drawing.Size(32, 13);
+            this.lbFiltro.Size = new System.Drawing.Size(39, 13);
             this.lbFiltro.TabIndex = 4;
             this.lbFiltro.Text = "Filtro:";
             // 
             // tbFiltro
             // 
+            this.tbFiltro.BackColor = System.Drawing.Color.Gainsboro;
             this.tbFiltro.Location = new System.Drawing.Point(422, 49);
             this.tbFiltro.Name = "tbFiltro";
             this.tbFiltro.Size = new System.Drawing.Size(166, 20);
@@ -100,6 +115,8 @@
             // 
             // bBuscar
             // 
+            this.bBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bBuscar.BackgroundImage")));
+            this.bBuscar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bBuscar.Location = new System.Drawing.Point(605, 45);
             this.bBuscar.Name = "bBuscar";
             this.bBuscar.Size = new System.Drawing.Size(126, 28);
@@ -109,15 +126,19 @@
             // 
             // bDetalle
             // 
-            this.bDetalle.Location = new System.Drawing.Point(605, 111);
+            this.bDetalle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bDetalle.BackgroundImage")));
+            this.bDetalle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bDetalle.Location = new System.Drawing.Point(605, 116);
             this.bDetalle.Name = "bDetalle";
             this.bDetalle.Size = new System.Drawing.Size(126, 56);
             this.bDetalle.TabIndex = 7;
             this.bDetalle.Text = "Detalle del Artículo";
             this.bDetalle.UseVisualStyleBackColor = true;
+            this.bDetalle.Click += new System.EventHandler(this.bDetalle_Click);
             // 
             // pbImagenOpciones
             // 
+            this.pbImagenOpciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbImagenOpciones.Location = new System.Drawing.Point(29, 85);
             this.pbImagenOpciones.Name = "pbImagenOpciones";
             this.pbImagenOpciones.Size = new System.Drawing.Size(210, 216);
@@ -139,6 +160,8 @@
             // 
             // bAgregar
             // 
+            this.bAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bAgregar.BackgroundImage")));
+            this.bAgregar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bAgregar.Location = new System.Drawing.Point(26, 307);
             this.bAgregar.Name = "bAgregar";
             this.bAgregar.Size = new System.Drawing.Size(126, 27);
@@ -149,7 +172,9 @@
             // 
             // bModificar
             // 
-            this.bModificar.Location = new System.Drawing.Point(210, 307);
+            this.bModificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bModificar.BackgroundImage")));
+            this.bModificar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bModificar.Location = new System.Drawing.Point(183, 307);
             this.bModificar.Name = "bModificar";
             this.bModificar.Size = new System.Drawing.Size(126, 27);
             this.bModificar.TabIndex = 11;
@@ -159,7 +184,9 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(394, 307);
+            this.bEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bEliminar.BackgroundImage")));
+            this.bEliminar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bEliminar.Location = new System.Drawing.Point(340, 307);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(126, 27);
             this.bEliminar.TabIndex = 12;
@@ -169,7 +196,9 @@
             // 
             // bVolverInicio
             // 
-            this.bVolverInicio.Location = new System.Drawing.Point(605, 205);
+            this.bVolverInicio.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bVolverInicio.BackgroundImage")));
+            this.bVolverInicio.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bVolverInicio.Location = new System.Drawing.Point(605, 210);
             this.bVolverInicio.Name = "bVolverInicio";
             this.bVolverInicio.Size = new System.Drawing.Size(126, 56);
             this.bVolverInicio.TabIndex = 13;
@@ -180,26 +209,34 @@
             // lbAclaraciones
             // 
             this.lbAclaraciones.AutoSize = true;
-            this.lbAclaraciones.Location = new System.Drawing.Point(538, 314);
+            this.lbAclaraciones.BackColor = System.Drawing.Color.Ivory;
+            this.lbAclaraciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbAclaraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAclaraciones.ForeColor = System.Drawing.Color.Tomato;
+            this.lbAclaraciones.Location = new System.Drawing.Point(497, 312);
             this.lbAclaraciones.Name = "lbAclaraciones";
-            this.lbAclaraciones.Size = new System.Drawing.Size(68, 13);
+            this.lbAclaraciones.Size = new System.Drawing.Size(91, 17);
             this.lbAclaraciones.TabIndex = 14;
             this.lbAclaraciones.Text = "Aclaraciones";
+            this.lbAclaraciones.Click += new System.EventHandler(this.lbAclaraciones_Click);
             // 
             // lbOpcionesTitulo
             // 
             this.lbOpcionesTitulo.AutoSize = true;
+            this.lbOpcionesTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbOpcionesTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOpcionesTitulo.Location = new System.Drawing.Point(287, 9);
+            this.lbOpcionesTitulo.ForeColor = System.Drawing.Color.Indigo;
+            this.lbOpcionesTitulo.Location = new System.Drawing.Point(232, 9);
             this.lbOpcionesTitulo.Name = "lbOpcionesTitulo";
-            this.lbOpcionesTitulo.Size = new System.Drawing.Size(129, 31);
+            this.lbOpcionesTitulo.Size = new System.Drawing.Size(288, 31);
             this.lbOpcionesTitulo.TabIndex = 15;
-            this.lbOpcionesTitulo.Text = "Opciones";
+            this.lbOpcionesTitulo.Text = "Opciones del Catálogo";
             // 
             // Opciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Presentacion.Properties.Resources.Fondo5;
             this.ClientSize = new System.Drawing.Size(754, 350);
             this.Controls.Add(this.lbOpcionesTitulo);
             this.Controls.Add(this.lbAclaraciones);

@@ -45,15 +45,20 @@ namespace Presentacion
             Articulo art = negocio.ultimoRegistro();
             string line1 = "El nombre del Artículo es " + art.Nombre;
             string line2 = "El código del Artículo es " + art.Codigo;
-            string line3 = "La descripción del Artículo es " + art.Descripcion;
+            string line3 = "Su descripción es " + art.Descripcion;
             string line4 = "La marca es " + art.Marca.Detalle + " y su categoría es " + art.Categoria.Detalle;
             string line5 = "Su precio actual es " + art.Precio;
             cargarImagen(art.ImagenUrl);
             lvUltimoArticulo.Items.Clear();
+            lvUltimoArticulo.Items.Add("");
             lvUltimoArticulo.Items.Add(line1);
+            lvUltimoArticulo.Items.Add("");
             lvUltimoArticulo.Items.Add(line2);
+            lvUltimoArticulo.Items.Add("");
             lvUltimoArticulo.Items.Add(line3);
+            lvUltimoArticulo.Items.Add("");
             lvUltimoArticulo.Items.Add(line4);
+            lvUltimoArticulo.Items.Add("");
             lvUltimoArticulo.Items.Add(line5);
         }
 
