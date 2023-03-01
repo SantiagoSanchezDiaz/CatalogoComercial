@@ -93,7 +93,9 @@
             this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.lvDetalle);
             this.Controls.Add(this.pbDetalle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Detalle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle";
             this.Load += new System.EventHandler(this.Detalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbDetalle)).EndInit();

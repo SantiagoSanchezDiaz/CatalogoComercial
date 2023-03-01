@@ -21,6 +21,14 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        public Opciones(string otro)
+        {
+            InitializeComponent();
+            AgregarModificar form = new AgregarModificar();
+            form.ShowDialog();
+            actualizar();
+        }
+
         private void bVolverInicio_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -49,6 +57,9 @@ namespace Presentacion
         private void Opciones_Load(object sender, EventArgs e)
         {
             actualizar();
+            cobCampo.Items.Add("Nombre");
+            cobCampo.Items.Add("Código");
+            cobCampo.Items.Add("Precio");
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -110,9 +121,14 @@ namespace Presentacion
                 DialogResult resultado = MessageBox.Show("¿De verdad quieres eliminarlo?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if(resultado == DialogResult.Yes)
                 {
-                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                    negocio.eliminar(seleccionado.Id);
-                    actualizar();
+                    if (dgvArticulos.CurrentRow != null)
+                    {
+                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        negocio.eliminar(seleccionado.Id);
+                        actualizar();
+                    }
+                    else
+                        lbAclaraciones.Text = "Seleccione una fila de la tabla";
                 }
             }
             catch (Exception ex)
@@ -136,9 +152,48 @@ namespace Presentacion
             }
         }
 
-        private void lbAclaraciones_Click(object sender, EventArgs e)
+        private void cobCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string opcion = cobCampo.SelectedItem.ToString();
+            switch(opcion)
+            {
+                case "Nombre":
+                    cobCriterio.Items.Clear();
+                    cobCriterio.Items.Add("Comienza con");
+                    cobCriterio.Items.Add("Termina con");
+                    cobCriterio.Items.Add("Contiene");
+                    break;
+                case "Código":
+                    cobCriterio.Items.Clear();
+                    cobCriterio.Items.Add("Comienza con");
+                    cobCriterio.Items.Add("Termina con");
+                    cobCriterio.Items.Add("Contiene");
+                    break;
+                case "Precio":
+                    cobCriterio.Items.Clear();
+                    cobCriterio.Items.Add("Mayor a");
+                    cobCriterio.Items.Add("Menor a");
+                    cobCriterio.Items.Add("Igual a");
+                    break;
+            }
+        }
 
+        private void bBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string campo = cobCampo.SelectedItem.ToString();
+                string criterio = cobCriterio.SelectedItem.ToString();
+                string filtro = tbFiltro.Text;
+                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

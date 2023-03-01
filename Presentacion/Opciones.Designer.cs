@@ -70,6 +70,7 @@
             this.cobCampo.Name = "cobCampo";
             this.cobCampo.Size = new System.Drawing.Size(117, 21);
             this.cobCampo.TabIndex = 1;
+            this.cobCampo.SelectedIndexChanged += new System.EventHandler(this.cobCampo_SelectedIndexChanged);
             // 
             // cobCriterio
             // 
@@ -123,6 +124,7 @@
             this.bBuscar.TabIndex = 6;
             this.bBuscar.Text = "Buscar";
             this.bBuscar.UseVisualStyleBackColor = true;
+            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
             // 
             // bDetalle
             // 
@@ -218,7 +220,6 @@
             this.lbAclaraciones.Size = new System.Drawing.Size(91, 17);
             this.lbAclaraciones.TabIndex = 14;
             this.lbAclaraciones.Text = "Aclaraciones";
-            this.lbAclaraciones.Click += new System.EventHandler(this.lbAclaraciones_Click);
             // 
             // lbOpcionesTitulo
             // 
@@ -254,8 +255,10 @@
             this.Controls.Add(this.lbCriterio);
             this.Controls.Add(this.cobCampo);
             this.Controls.Add(this.lbCampo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Opciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Opciones";
             this.Load += new System.EventHandler(this.Opciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenOpciones)).EndInit();

@@ -21,20 +21,7 @@ namespace Negocio
 				datos.ejecutarConsulta();
 				while (datos.Lector.Read())
 				{
-					Articulo aux = new Articulo();
-					aux.Marca = new Marca();
-					aux.Categoria = new Categoria();
-					aux.Id = (int)datos.Lector["Id"];
-                    aux.Codigo = (string)datos.Lector["Codigo"];
-					aux.Nombre = (string)datos.Lector["Nombre"];
-					aux.Descripcion = (string)datos.Lector["Descripcion"];
-					aux.Marca.Id = (int)datos.Lector["IdMarca"];
-					aux.Marca.Detalle = (string)datos.Lector["Marca"];
-					aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
-					aux.Categoria.Detalle = (string)datos.Lector["Categoria"];
-					aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-					aux.Precio = (decimal)datos.Lector["Precio"];
-					lista.Add(aux);
+                    lista.Add(leerDatos(datos));
                 }
 				return lista;
 			}
@@ -124,18 +111,7 @@ namespace Negocio
 				datos.setearConsulta("Select top (1) A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as Marca, A.IdCategoria, C.Descripcion as Categoria, A.ImagenUrl, A.Precio From ARTICULOS A, CATEGORIAS C, MARCAS M Where A.IdMarca = M.Id and A.IdCategoria = C.Id Order By A.Id Desc");
 				datos.ejecutarConsulta();
 				datos.Lector.Read();
-                ultimoArt.Marca = new Marca();
-                ultimoArt.Categoria = new Categoria();
-                ultimoArt.Id = (int)datos.Lector["Id"];
-                ultimoArt.Codigo = (string)datos.Lector["Codigo"];
-                ultimoArt.Nombre = (string)datos.Lector["Nombre"];
-                ultimoArt.Descripcion = (string)datos.Lector["Descripcion"];
-                ultimoArt.Marca.Id = (int)datos.Lector["IdMarca"];
-                ultimoArt.Marca.Detalle = (string)datos.Lector["Marca"];
-                ultimoArt.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                ultimoArt.Categoria.Detalle = (string)datos.Lector["Categoria"];
-                ultimoArt.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                ultimoArt.Precio = (decimal)datos.Lector["Precio"];
+				ultimoArt = leerDatos(datos);
                 return ultimoArt;
 			}
 			catch (Exception ex)
@@ -147,5 +123,98 @@ namespace Negocio
 				datos.cerrarConexion();
 			}
 		}
+
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+			AccesoDatos datos = new AccesoDatos();
+			List<Articulo> lista = new List<Articulo>();
+			string consulta = "Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as Marca, A.IdCategoria, C.Descripcion as Categoria, A.ImagenUrl, A.Precio From ARTICULOS A, CATEGORIAS C, MARCAS M Where A.IdMarca = M.Id and A.IdCategoria = C.Id And ";
+            try
+			{
+				switch(campo)
+                {
+					case "Nombre":
+						switch(criterio)
+                        {
+							case "Comienza con":
+								consulta += "A.Nombre like '" + filtro + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += "A.Nombre like '%" + filtro + "'";
+                                break;
+                            case "Contiene":
+                                consulta += "A.Nombre like '%" + filtro + "%'";
+                                break;
+                        }
+                        break;
+
+					case "Código":
+                        switch (criterio)
+                        {
+                            case "Comienza con":
+                                consulta += "A.Codigo like '" + filtro + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += "A.Codigo like '%" + filtro + "'";
+                                break;
+                            case "Contiene":
+                                consulta += "A.Codigo like '%" + filtro + "%'";
+                                break;
+                        }
+                        break;
+
+                    case "Precio":
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+								consulta += "A.Precio > " + filtro;
+                                break;
+                            case "Menor a":
+                                consulta += "A.Precio < " + filtro;
+                                break;
+                            case "Igual a":
+                                consulta += "A.Precio = " + filtro;
+                                break;
+                        }
+                        break;
+                }
+				datos.setearConsulta(consulta);
+				datos.ejecutarConsulta();
+                while (datos.Lector.Read())
+                {
+                    lista.Add(leerDatos(datos));
+                }
+                return lista;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+        }
+
+		public Articulo leerDatos(AccesoDatos datos)
+        {
+            Articulo aux = new Articulo();
+            aux.Marca = new Marca();
+            aux.Categoria = new Categoria();
+            try
+			{
+                aux.Id = (int)datos.Lector["Id"];
+                aux.Codigo = (string)datos.Lector["Codigo"];
+                aux.Nombre = (string)datos.Lector["Nombre"];
+                aux.Descripcion = (string)datos.Lector["Descripcion"];
+                aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                aux.Marca.Detalle = (string)datos.Lector["Marca"];
+                aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                aux.Categoria.Detalle = (string)datos.Lector["Categoria"];
+                aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                aux.Precio = (decimal)datos.Lector["Precio"];
+                return aux;
+            }
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+        }
     }
 }

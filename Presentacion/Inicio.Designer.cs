@@ -44,6 +44,9 @@
             this.lbModificar = new System.Windows.Forms.Label();
             this.lbEliminar = new System.Windows.Forms.Label();
             this.bSalir = new System.Windows.Forms.Button();
+            this.salirDelProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verOpcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarUnArtículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbInicio)).BeginInit();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
@@ -118,6 +121,7 @@
             // 
             // msMenu
             // 
+            this.msMenu.BackgroundImage = global::Presentacion.Properties.Resources.Fondo5;
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.opcionesToolStripMenuItem,
@@ -125,18 +129,23 @@
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.msMenu.Size = new System.Drawing.Size(881, 24);
+            this.msMenu.Size = new System.Drawing.Size(877, 24);
             this.msMenu.TabIndex = 5;
             this.msMenu.Text = "msMenu";
             // 
             // archivoToolStripMenuItem
             // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirDelProgramaToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // opcionesToolStripMenuItem
             // 
+            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verOpcionesToolStripMenuItem,
+            this.agregarUnArtículoToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -243,13 +252,34 @@
             this.bSalir.UseVisualStyleBackColor = false;
             this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
             // 
+            // salirDelProgramaToolStripMenuItem
+            // 
+            this.salirDelProgramaToolStripMenuItem.Name = "salirDelProgramaToolStripMenuItem";
+            this.salirDelProgramaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirDelProgramaToolStripMenuItem.Text = "Salir del Programa";
+            this.salirDelProgramaToolStripMenuItem.Click += new System.EventHandler(this.salirDelProgramaToolStripMenuItem_Click);
+            // 
+            // verOpcionesToolStripMenuItem
+            // 
+            this.verOpcionesToolStripMenuItem.Name = "verOpcionesToolStripMenuItem";
+            this.verOpcionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verOpcionesToolStripMenuItem.Text = "Ver Opciones";
+            this.verOpcionesToolStripMenuItem.Click += new System.EventHandler(this.verOpcionesToolStripMenuItem_Click);
+            // 
+            // agregarUnArtículoToolStripMenuItem
+            // 
+            this.agregarUnArtículoToolStripMenuItem.Name = "agregarUnArtículoToolStripMenuItem";
+            this.agregarUnArtículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarUnArtículoToolStripMenuItem.Text = "Agregar un Artículo";
+            this.agregarUnArtículoToolStripMenuItem.Click += new System.EventHandler(this.agregarUnArtículoToolStripMenuItem_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = global::Presentacion.Properties.Resources.Fondo5;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(881, 360);
+            this.ClientSize = new System.Drawing.Size(877, 356);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.lbEliminar);
             this.Controls.Add(this.lbModificar);
@@ -264,12 +294,15 @@
             this.Controls.Add(this.lbCatalogo);
             this.Controls.Add(this.msMenu);
             this.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.msMenu;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(897, 399);
             this.MinimumSize = new System.Drawing.Size(897, 399);
             this.Name = "Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbInicio)).EndInit();
@@ -298,6 +331,9 @@
         private System.Windows.Forms.Label lbModificar;
         private System.Windows.Forms.Label lbEliminar;
         private System.Windows.Forms.Button bSalir;
+        private System.Windows.Forms.ToolStripMenuItem salirDelProgramaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verOpcionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarUnArtículoToolStripMenuItem;
     }
 }
 

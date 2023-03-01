@@ -73,5 +73,24 @@ namespace Presentacion
                 pbInicio.Load("https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
             }
         }
+
+        private void salirDelProgramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void verOpcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Opciones opciones = new Opciones();
+            opciones.ShowDialog();
+            cargarUltimoArt();
+        }
+
+        private void agregarUnArtículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Opciones opciones = new Opciones("Otro");
+            opciones.ShowDialog();
+            cargarUltimoArt();
+        }
     }
 }

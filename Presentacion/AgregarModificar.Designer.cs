@@ -281,10 +281,12 @@
             this.Controls.Add(this.lbCodigo);
             this.Controls.Add(this.lbAgregarModificar);
             this.Controls.Add(this.lbNombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(442, 312);
             this.MinimumSize = new System.Drawing.Size(442, 312);
             this.Name = "AgregarModificar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carga de Datos";
             this.Load += new System.EventHandler(this.AgregarModificar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCargaDatos)).EndInit();
