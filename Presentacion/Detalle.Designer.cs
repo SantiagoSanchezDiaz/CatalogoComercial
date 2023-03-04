@@ -94,6 +94,9 @@
             this.Controls.Add(this.lvDetalle);
             this.Controls.Add(this.pbDetalle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(549, 316);
+            this.MinimumSize = new System.Drawing.Size(549, 316);
             this.Name = "Detalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle";

@@ -54,7 +54,5 @@ namespace Datos
                 lector.Close();
             conexion.Close();
         }
-
-        //DESKTOP-U3MQGDJ\SQLEXPRESS
     }
 }

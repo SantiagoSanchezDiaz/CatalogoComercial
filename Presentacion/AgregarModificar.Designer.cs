@@ -48,6 +48,11 @@
             this.bAgregarModificar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
             this.pbCargaDatos = new System.Windows.Forms.PictureBox();
+            this.lbNombre2 = new System.Windows.Forms.Label();
+            this.lbCodigo2 = new System.Windows.Forms.Label();
+            this.lbPrecio2 = new System.Windows.Forms.Label();
+            this.lbMarca2 = new System.Windows.Forms.Label();
+            this.lbCategoria2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbCargaDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +67,6 @@
             this.lbNombre.Size = new System.Drawing.Size(54, 13);
             this.lbNombre.TabIndex = 0;
             this.lbNombre.Text = "Nombre:";
-            this.lbNombre.Click += new System.EventHandler(this.lbNombre_Click);
             // 
             // lbAgregarModificar
             // 
@@ -75,7 +79,6 @@
             this.lbAgregarModificar.Size = new System.Drawing.Size(124, 31);
             this.lbAgregarModificar.TabIndex = 1;
             this.lbAgregarModificar.Text = "Depende";
-            this.lbAgregarModificar.Click += new System.EventHandler(this.lbAgregarModificar_Click);
             // 
             // lbCodigo
             // 
@@ -88,7 +91,6 @@
             this.lbCodigo.Size = new System.Drawing.Size(50, 13);
             this.lbCodigo.TabIndex = 2;
             this.lbCodigo.Text = "Código:";
-            this.lbCodigo.Click += new System.EventHandler(this.lbCodigo_Click);
             // 
             // lbPrecio
             // 
@@ -101,7 +103,6 @@
             this.lbPrecio.Size = new System.Drawing.Size(47, 13);
             this.lbPrecio.TabIndex = 3;
             this.lbPrecio.Text = "Precio:";
-            this.lbPrecio.Click += new System.EventHandler(this.lbPrecio_Click);
             // 
             // lbMarca
             // 
@@ -155,15 +156,16 @@
             // 
             this.tbNombre.BackColor = System.Drawing.Color.Gainsboro;
             this.tbNombre.Location = new System.Drawing.Point(98, 48);
+            this.tbNombre.MaxLength = 49;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(148, 20);
             this.tbNombre.TabIndex = 8;
-            this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
             // tbCodigo
             // 
             this.tbCodigo.BackColor = System.Drawing.Color.Gainsboro;
             this.tbCodigo.Location = new System.Drawing.Point(98, 74);
+            this.tbCodigo.MaxLength = 3;
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(148, 20);
             this.tbCodigo.TabIndex = 9;
@@ -172,24 +174,28 @@
             // 
             this.tbPrecio.BackColor = System.Drawing.Color.Gainsboro;
             this.tbPrecio.Location = new System.Drawing.Point(98, 100);
+            this.tbPrecio.MaxLength = 49;
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(148, 20);
             this.tbPrecio.TabIndex = 10;
+            this.tbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecio_KeyPress);
             // 
             // tbDescripcion
             // 
             this.tbDescripcion.BackColor = System.Drawing.Color.Gainsboro;
             this.tbDescripcion.Location = new System.Drawing.Point(98, 208);
+            this.tbDescripcion.MaxLength = 149;
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(319, 20);
+            this.tbDescripcion.Size = new System.Drawing.Size(349, 20);
             this.tbDescripcion.TabIndex = 11;
             // 
             // tbUrlImagen
             // 
             this.tbUrlImagen.BackColor = System.Drawing.Color.Gainsboro;
             this.tbUrlImagen.Location = new System.Drawing.Point(98, 180);
+            this.tbUrlImagen.MaxLength = 999;
             this.tbUrlImagen.Name = "tbUrlImagen";
-            this.tbUrlImagen.Size = new System.Drawing.Size(121, 20);
+            this.tbUrlImagen.Size = new System.Drawing.Size(148, 20);
             this.tbUrlImagen.TabIndex = 12;
             this.tbUrlImagen.Leave += new System.EventHandler(this.tbUrlImagen_Leave);
             // 
@@ -215,12 +221,13 @@
             // 
             // bImagen
             // 
-            this.bImagen.Location = new System.Drawing.Point(225, 180);
+            this.bImagen.Location = new System.Drawing.Point(252, 181);
             this.bImagen.Name = "bImagen";
-            this.bImagen.Size = new System.Drawing.Size(21, 20);
+            this.bImagen.Size = new System.Drawing.Size(26, 20);
             this.bImagen.TabIndex = 15;
             this.bImagen.Text = "+";
             this.bImagen.UseVisualStyleBackColor = true;
+            this.bImagen.Click += new System.EventHandler(this.bImagen_Click);
             // 
             // bAgregarModificar
             // 
@@ -249,19 +256,79 @@
             // pbCargaDatos
             // 
             this.pbCargaDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbCargaDatos.Location = new System.Drawing.Point(253, 48);
+            this.pbCargaDatos.Location = new System.Drawing.Point(283, 44);
             this.pbCargaDatos.Name = "pbCargaDatos";
             this.pbCargaDatos.Size = new System.Drawing.Size(164, 154);
             this.pbCargaDatos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCargaDatos.TabIndex = 16;
             this.pbCargaDatos.TabStop = false;
             // 
+            // lbNombre2
+            // 
+            this.lbNombre2.AutoSize = true;
+            this.lbNombre2.BackColor = System.Drawing.Color.Transparent;
+            this.lbNombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombre2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbNombre2.Location = new System.Drawing.Point(252, 48);
+            this.lbNombre2.Name = "lbNombre2";
+            this.lbNombre2.Size = new System.Drawing.Size(0, 31);
+            this.lbNombre2.TabIndex = 19;
+            // 
+            // lbCodigo2
+            // 
+            this.lbCodigo2.AutoSize = true;
+            this.lbCodigo2.BackColor = System.Drawing.Color.Transparent;
+            this.lbCodigo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCodigo2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbCodigo2.Location = new System.Drawing.Point(252, 74);
+            this.lbCodigo2.Name = "lbCodigo2";
+            this.lbCodigo2.Size = new System.Drawing.Size(0, 31);
+            this.lbCodigo2.TabIndex = 20;
+            // 
+            // lbPrecio2
+            // 
+            this.lbPrecio2.AutoSize = true;
+            this.lbPrecio2.BackColor = System.Drawing.Color.Transparent;
+            this.lbPrecio2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrecio2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbPrecio2.Location = new System.Drawing.Point(252, 100);
+            this.lbPrecio2.Name = "lbPrecio2";
+            this.lbPrecio2.Size = new System.Drawing.Size(0, 31);
+            this.lbPrecio2.TabIndex = 21;
+            // 
+            // lbMarca2
+            // 
+            this.lbMarca2.AutoSize = true;
+            this.lbMarca2.BackColor = System.Drawing.Color.Transparent;
+            this.lbMarca2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMarca2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbMarca2.Location = new System.Drawing.Point(252, 126);
+            this.lbMarca2.Name = "lbMarca2";
+            this.lbMarca2.Size = new System.Drawing.Size(0, 31);
+            this.lbMarca2.TabIndex = 22;
+            // 
+            // lbCategoria2
+            // 
+            this.lbCategoria2.AutoSize = true;
+            this.lbCategoria2.BackColor = System.Drawing.Color.Transparent;
+            this.lbCategoria2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategoria2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbCategoria2.Location = new System.Drawing.Point(252, 153);
+            this.lbCategoria2.Name = "lbCategoria2";
+            this.lbCategoria2.Size = new System.Drawing.Size(0, 31);
+            this.lbCategoria2.TabIndex = 23;
+            // 
             // AgregarModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Presentacion.Properties.Resources.Fondo5;
-            this.ClientSize = new System.Drawing.Size(426, 273);
+            this.ClientSize = new System.Drawing.Size(459, 269);
+            this.Controls.Add(this.lbCategoria2);
+            this.Controls.Add(this.lbMarca2);
+            this.Controls.Add(this.lbPrecio2);
+            this.Controls.Add(this.lbCodigo2);
+            this.Controls.Add(this.lbNombre2);
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.bAgregarModificar);
             this.Controls.Add(this.pbCargaDatos);
@@ -283,8 +350,8 @@
             this.Controls.Add(this.lbNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(442, 312);
-            this.MinimumSize = new System.Drawing.Size(442, 312);
+            this.MaximumSize = new System.Drawing.Size(479, 312);
+            this.MinimumSize = new System.Drawing.Size(479, 312);
             this.Name = "AgregarModificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carga de Datos";
@@ -316,5 +383,10 @@
         private System.Windows.Forms.PictureBox pbCargaDatos;
         private System.Windows.Forms.Button bAgregarModificar;
         private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Label lbNombre2;
+        private System.Windows.Forms.Label lbCodigo2;
+        private System.Windows.Forms.Label lbPrecio2;
+        private System.Windows.Forms.Label lbMarca2;
+        private System.Windows.Forms.Label lbCategoria2;
     }
 }

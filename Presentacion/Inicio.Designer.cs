@@ -35,7 +35,10 @@
             this.lbListado = new System.Windows.Forms.Label();
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirDelProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verOpcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarUnArtículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOpciones = new System.Windows.Forms.Button();
             this.lbHorario = new System.Windows.Forms.Label();
@@ -44,9 +47,7 @@
             this.lbModificar = new System.Windows.Forms.Label();
             this.lbEliminar = new System.Windows.Forms.Label();
             this.bSalir = new System.Windows.Forms.Button();
-            this.salirDelProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verOpcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarUnArtículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbHorarioIngreso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbInicio)).BeginInit();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
@@ -129,7 +130,7 @@
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.msMenu.Size = new System.Drawing.Size(877, 24);
+            this.msMenu.Size = new System.Drawing.Size(883, 24);
             this.msMenu.TabIndex = 5;
             this.msMenu.Text = "msMenu";
             // 
@@ -141,6 +142,13 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // salirDelProgramaToolStripMenuItem
+            // 
+            this.salirDelProgramaToolStripMenuItem.Name = "salirDelProgramaToolStripMenuItem";
+            this.salirDelProgramaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.salirDelProgramaToolStripMenuItem.Text = "Salir del Programa";
+            this.salirDelProgramaToolStripMenuItem.Click += new System.EventHandler(this.salirDelProgramaToolStripMenuItem_Click);
+            // 
             // opcionesToolStripMenuItem
             // 
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,11 +158,26 @@
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
+            // verOpcionesToolStripMenuItem
+            // 
+            this.verOpcionesToolStripMenuItem.Name = "verOpcionesToolStripMenuItem";
+            this.verOpcionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.verOpcionesToolStripMenuItem.Text = "Ver Opciones";
+            this.verOpcionesToolStripMenuItem.Click += new System.EventHandler(this.verOpcionesToolStripMenuItem_Click);
+            // 
+            // agregarUnArtículoToolStripMenuItem
+            // 
+            this.agregarUnArtículoToolStripMenuItem.Name = "agregarUnArtículoToolStripMenuItem";
+            this.agregarUnArtículoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.agregarUnArtículoToolStripMenuItem.Text = "Agregar un Artículo";
+            this.agregarUnArtículoToolStripMenuItem.Click += new System.EventHandler(this.agregarUnArtículoToolStripMenuItem_Click);
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
             // 
             // bOpciones
             // 
@@ -177,7 +200,7 @@
             this.lbHorario.BackColor = System.Drawing.Color.Transparent;
             this.lbHorario.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHorario.ForeColor = System.Drawing.Color.Indigo;
-            this.lbHorario.Location = new System.Drawing.Point(712, 59);
+            this.lbHorario.Location = new System.Drawing.Point(711, 53);
             this.lbHorario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbHorario.Name = "lbHorario";
             this.lbHorario.Size = new System.Drawing.Size(97, 18);
@@ -252,26 +275,18 @@
             this.bSalir.UseVisualStyleBackColor = false;
             this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
             // 
-            // salirDelProgramaToolStripMenuItem
+            // lbHorarioIngreso
             // 
-            this.salirDelProgramaToolStripMenuItem.Name = "salirDelProgramaToolStripMenuItem";
-            this.salirDelProgramaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salirDelProgramaToolStripMenuItem.Text = "Salir del Programa";
-            this.salirDelProgramaToolStripMenuItem.Click += new System.EventHandler(this.salirDelProgramaToolStripMenuItem_Click);
-            // 
-            // verOpcionesToolStripMenuItem
-            // 
-            this.verOpcionesToolStripMenuItem.Name = "verOpcionesToolStripMenuItem";
-            this.verOpcionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verOpcionesToolStripMenuItem.Text = "Ver Opciones";
-            this.verOpcionesToolStripMenuItem.Click += new System.EventHandler(this.verOpcionesToolStripMenuItem_Click);
-            // 
-            // agregarUnArtículoToolStripMenuItem
-            // 
-            this.agregarUnArtículoToolStripMenuItem.Name = "agregarUnArtículoToolStripMenuItem";
-            this.agregarUnArtículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.agregarUnArtículoToolStripMenuItem.Text = "Agregar un Artículo";
-            this.agregarUnArtículoToolStripMenuItem.Click += new System.EventHandler(this.agregarUnArtículoToolStripMenuItem_Click);
+            this.lbHorarioIngreso.AutoSize = true;
+            this.lbHorarioIngreso.BackColor = System.Drawing.Color.Transparent;
+            this.lbHorarioIngreso.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHorarioIngreso.ForeColor = System.Drawing.Color.Indigo;
+            this.lbHorarioIngreso.Location = new System.Drawing.Point(721, 24);
+            this.lbHorarioIngreso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHorarioIngreso.Name = "lbHorarioIngreso";
+            this.lbHorarioIngreso.Size = new System.Drawing.Size(120, 18);
+            this.lbHorarioIngreso.TabIndex = 17;
+            this.lbHorarioIngreso.Text = "Horario de Ingreso";
             // 
             // Inicio
             // 
@@ -279,7 +294,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = global::Presentacion.Properties.Resources.Fondo5;
-            this.ClientSize = new System.Drawing.Size(877, 356);
+            this.ClientSize = new System.Drawing.Size(883, 363);
+            this.Controls.Add(this.lbHorarioIngreso);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.lbEliminar);
             this.Controls.Add(this.lbModificar);
@@ -299,8 +315,8 @@
             this.MainMenuStrip = this.msMenu;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(897, 399);
-            this.MinimumSize = new System.Drawing.Size(897, 399);
+            this.MaximumSize = new System.Drawing.Size(903, 406);
+            this.MinimumSize = new System.Drawing.Size(903, 406);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
@@ -334,6 +350,7 @@
         private System.Windows.Forms.ToolStripMenuItem salirDelProgramaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verOpcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarUnArtículoToolStripMenuItem;
+        private System.Windows.Forms.Label lbHorarioIngreso;
     }
 }
 

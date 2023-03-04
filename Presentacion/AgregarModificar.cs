@@ -38,39 +38,96 @@ namespace Presentacion
         private void bAgregarModificar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            
+            bool cerrar = true;
             try
             {
-                if (articulo == null)
-                    articulo = new Articulo();
-                    
-                articulo.Nombre = tbNombre.Text;
-                articulo.Codigo = tbCodigo.Text;
-                articulo.Precio = decimal.Parse(tbPrecio.Text);
-                articulo.Marca = (Marca)cobMarca.SelectedItem;
-                articulo.Categoria = (Categoria)cobCategoria.SelectedItem;
-                articulo.ImagenUrl = tbUrlImagen.Text;
-                articulo.Descripcion = tbDescripcion.Text;
-
-                if (articulo.Id == 0)
+                cerrar = verificarCasillas();
+                if (cerrar)
                 {
-                    negocio.agregar(articulo);
-                    MessageBox.Show("Agregado exitosamente");
+                    MessageBox.Show("Complete los datos requeridos *");
                 }
                 else
                 {
-                    negocio.modificar(articulo);
-                    MessageBox.Show("Modificado exitosamente");
+                    if (articulo == null)
+                        articulo = new Articulo();
+
+                    articulo.Nombre = tbNombre.Text;
+                    articulo.Codigo = tbCodigo.Text;
+                    articulo.Precio = decimal.Parse(tbPrecio.Text);
+                    articulo.Marca = (Marca)cobMarca.SelectedItem;
+                    articulo.Categoria = (Categoria)cobCategoria.SelectedItem;
+                    articulo.ImagenUrl = tbUrlImagen.Text;
+                    articulo.Descripcion = tbDescripcion.Text;
+
+                    if (articulo.Id == 0)
+                    {
+                        negocio.agregar(articulo);
+                        MessageBox.Show("Agregado exitosamente");
+                    }
+                    else
+                    {
+                        negocio.modificar(articulo);
+                        MessageBox.Show("Modificado exitosamente");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
-                Close();
+                if(cerrar == false)
+                    this.Close();
             }
+        }
+
+        private bool verificarCasillas()
+        {
+            bool verificado = false;
+            try
+            {
+                if (string.IsNullOrEmpty(tbNombre.Text))
+                {
+                    verificado = true;
+                    lbNombre2.Text = "*";
+                }
+                else
+                    lbNombre2.Text = "";
+                if (string.IsNullOrEmpty(tbCodigo.Text))
+                {
+                    verificado = true;
+                    lbCodigo2.Text = "*";
+                }
+                else
+                    lbCodigo2.Text = "";
+                if (string.IsNullOrEmpty(tbPrecio.Text))
+                {
+                    verificado = true;
+                    lbPrecio2.Text = "*";
+                }
+                else
+                    lbPrecio2.Text = "";
+                if (cobMarca.SelectedIndex < 0)
+                {
+                    verificado = true;
+                    lbMarca2.Text = "*";
+                }
+                else
+                    lbMarca2.Text = "";
+                if (cobCategoria.SelectedIndex < 0)
+                {
+                    verificado = true;
+                    lbCategoria2.Text = "*";
+                }
+                else
+                    lbCategoria2.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return verificado;
         }
 
         private void AgregarModificar_Load(object sender, EventArgs e)
@@ -85,8 +142,10 @@ namespace Presentacion
                 cobCategoria.DataSource = categoriaNegocio.listar();
                 cobCategoria.ValueMember = "Id";
                 cobCategoria.DisplayMember = "Detalle";
+                cobMarca.SelectedIndex = -1;
+                cobCategoria.SelectedIndex = -1;
 
-                if(articulo != null)
+                if (articulo != null)
                 {
                     tbNombre.Text = articulo.Nombre;
                     tbCodigo.Text = articulo.Codigo;
@@ -104,17 +163,32 @@ namespace Presentacion
             }
         }
 
-        private void tbNombre_TextChanged(object sender, EventArgs e)
-        {
-            if(tbNombre.Text == "")
-                tbNombre.BackColor = Color.LightSalmon;
-            else
-                tbNombre.BackColor = Color.White;
-        }
-
         private void tbUrlImagen_Leave(object sender, EventArgs e)
         {
             cargarImagen(tbUrlImagen.Text);
+        }
+
+        private void cargarImagen(string Url)
+        {
+            try
+            {
+                pbCargaDatos.Load(Url);
+            }
+            catch (Exception)
+            {
+                pbCargaDatos.Load("https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
+            }
+        }
+
+        private void tbPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 59) && e.KeyChar != 8 && e.KeyChar !=46)
+                e.Handled = true;
+        }
+
+        private void bImagen_Click(object sender, EventArgs e)
+        {
+            /// Cargar aca la imagen desde la compu
         }
 
         /*  
@@ -131,36 +205,5 @@ namespace Presentacion
             }
         }
         */
-        private void cargarImagen(string Url)
-        {
-            try
-            {
-                pbCargaDatos.Load(Url);
-            }
-            catch (Exception)
-            {
-                pbCargaDatos.Load("https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
-            }
-        }
-
-        private void lbAgregarModificar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbNombre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbCodigo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbPrecio_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

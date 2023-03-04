@@ -176,7 +176,7 @@
             // 
             this.bModificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bModificar.BackgroundImage")));
             this.bModificar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.bModificar.Location = new System.Drawing.Point(183, 307);
+            this.bModificar.Location = new System.Drawing.Point(169, 307);
             this.bModificar.Name = "bModificar";
             this.bModificar.Size = new System.Drawing.Size(126, 27);
             this.bModificar.TabIndex = 11;
@@ -188,7 +188,7 @@
             // 
             this.bEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bEliminar.BackgroundImage")));
             this.bEliminar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.bEliminar.Location = new System.Drawing.Point(340, 307);
+            this.bEliminar.Location = new System.Drawing.Point(312, 307);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(126, 27);
             this.bEliminar.TabIndex = 12;
@@ -211,15 +211,13 @@
             // lbAclaraciones
             // 
             this.lbAclaraciones.AutoSize = true;
-            this.lbAclaraciones.BackColor = System.Drawing.Color.Ivory;
-            this.lbAclaraciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbAclaraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAclaraciones.ForeColor = System.Drawing.Color.Tomato;
-            this.lbAclaraciones.Location = new System.Drawing.Point(497, 312);
+            this.lbAclaraciones.BackColor = System.Drawing.Color.Transparent;
+            this.lbAclaraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAclaraciones.ForeColor = System.Drawing.Color.Indigo;
+            this.lbAclaraciones.Location = new System.Drawing.Point(457, 312);
             this.lbAclaraciones.Name = "lbAclaraciones";
-            this.lbAclaraciones.Size = new System.Drawing.Size(91, 17);
+            this.lbAclaraciones.Size = new System.Drawing.Size(0, 15);
             this.lbAclaraciones.TabIndex = 14;
-            this.lbAclaraciones.Text = "Aclaraciones";
             // 
             // lbOpcionesTitulo
             // 
@@ -257,6 +255,8 @@
             this.Controls.Add(this.lbCampo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(774, 393);
+            this.MinimumSize = new System.Drawing.Size(774, 393);
             this.Name = "Opciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Opciones";

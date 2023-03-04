@@ -29,10 +29,6 @@ namespace Negocio
 			{
 				throw ex;
 			}
-			finally
-			{
-				datos.cerrarConexion();
-			}
         }
 
 		public void agregar(Articulo art)
@@ -47,6 +43,10 @@ namespace Negocio
             catch (Exception ex)
 			{
 				throw ex;
+			}
+			finally
+			{
+				datos.cerrarConexion();
 			}
 		}
 
@@ -117,10 +117,6 @@ namespace Negocio
 			catch (Exception ex)
 			{
 				throw ex;
-			}
-			finally
-			{
-				datos.cerrarConexion();
 			}
 		}
 
@@ -197,24 +193,35 @@ namespace Negocio
             Articulo aux = new Articulo();
             aux.Marca = new Marca();
             aux.Categoria = new Categoria();
-            try
+			try
 			{
-                aux.Id = (int)datos.Lector["Id"];
-                aux.Codigo = (string)datos.Lector["Codigo"];
-                aux.Nombre = (string)datos.Lector["Nombre"];
-                aux.Descripcion = (string)datos.Lector["Descripcion"];
-                aux.Marca.Id = (int)datos.Lector["IdMarca"];
-                aux.Marca.Detalle = (string)datos.Lector["Marca"];
+				aux.Id = (int)datos.Lector["Id"];
+				if(!(datos.Lector["Codigo"] is DBNull))
+					aux.Codigo = (string)datos.Lector["Codigo"];
+                if (!(datos.Lector["Nombre"] is DBNull))
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                if (!(datos.Lector["Descripcion"] is DBNull))
+					aux.Descripcion = (string)datos.Lector["Descripcion"];
+				aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                if (!(datos.Lector["Marca"] is DBNull))
+                    aux.Marca.Detalle = (string)datos.Lector["Marca"];
                 aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                aux.Categoria.Detalle = (string)datos.Lector["Categoria"];
-                aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                aux.Precio = (decimal)datos.Lector["Precio"];
+                if (!(datos.Lector["Categoria"] is DBNull))
+                    aux.Categoria.Detalle = (string)datos.Lector["Categoria"];
+                if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                if (!(datos.Lector["Precio"] is DBNull))
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                 return aux;
             }
 			catch (Exception ex)
 			{
 				throw ex;
-			}
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }
