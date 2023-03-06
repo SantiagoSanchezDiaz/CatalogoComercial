@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using System.Configuration;
 
 namespace Presentacion
 {
     public partial class AgregarModificar : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog archivo = null;
         public AgregarModificar()
         {
             InitializeComponent();
@@ -70,6 +72,9 @@ namespace Presentacion
                         MessageBox.Show("Modificado exitosamente");
                     }
                 }
+
+                if(archivo != null && !(tbUrlImagen.Text.ToLower().Contains("http")))
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["carpeta-imagenes"] + archivo.SafeFileName);
             }
             catch (Exception ex)
             {
@@ -188,22 +193,13 @@ namespace Presentacion
 
         private void bImagen_Click(object sender, EventArgs e)
         {
-            /// Cargar aca la imagen desde la compu
-        }
-
-        /*  
-        Esta linea va en el designer --->  this.bImagen.Click += new System.EventHandler(this.bImagen_Click);
-        private void bImagen_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog archivo = new OpenFileDialog();
-            if(archivo.ShowDialog() == DialogResult.OK)
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";   
+            if (archivo.ShowDialog() == DialogResult.OK)
             {
                 tbUrlImagen.Text = archivo.FileName;
                 cargarImagen(archivo.FileName);
-
-                File.Copy();
             }
         }
-        */
     }
 }

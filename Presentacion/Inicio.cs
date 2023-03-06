@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using System.Configuration;
+using System.Xml;
+using System.IO;
 
 namespace Presentacion
 {
     public partial class Inicio : Form
     {
+        // private string direccion = null;
+
         DateTime horario = DateTime.Now;
         public Inicio()
         {
@@ -108,5 +113,37 @@ namespace Presentacion
         {
             MessageBox.Show("Contacte con mantenimiento.");
         }
+
+        // Intento de direccionar a la misma carpeta del proyecto
+
+        /*
+            direccion = conseguirDireccion();
+            
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+
+            foreach (XmlElement item in xmlDoc.DocumentElement)
+            {
+                if (item.Name.Equals("appSettings"))
+                {
+                    foreach (XmlNode nodo in item.ChildNodes)
+                    {
+                        if (nodo.Attributes[0].Value == "carpeta-imagenes")
+                            nodo.Attributes[1].Value = direccion + "\ ";
+                    }
+                }
+            }
+            xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+            ConfigurationManager.RefreshSection("appSettings");
+            
+
+        private string conseguirDireccion()
+        {
+            string path = Path.GetFullPath("CatalogoComercial-main");
+            int ancho = path.Length - 45;
+            path = path.Remove(ancho, 45) + "Imagenes";
+            return path;
+        }
+        */
     }
 }

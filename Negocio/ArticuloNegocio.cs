@@ -29,6 +29,10 @@ namespace Negocio
 			{
 				throw ex;
 			}
+			finally
+			{
+				datos.cerrarConexion();
+			}
         }
 
 		public void agregar(Articulo art)
@@ -38,7 +42,6 @@ namespace Negocio
 			{
 				datos.setearConsulta("Insert into ARTICULOS (Nombre, Codigo, Precio, IdMarca, IdCategoria, ImagenUrl, Descripcion) values (@Nombre, @Codigo, @Precio, @IdMarca, @IdCategoria, @ImagenUrl, @Descripcion)");
 				parametros(art, datos);
-
             }
             catch (Exception ex)
 			{
@@ -63,6 +66,10 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
 		public void eliminar(int id)
@@ -78,7 +85,11 @@ namespace Negocio
 			{
 				throw ex;
 			}
-		}
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
 		public void parametros(Articulo art, AccesoDatos datos)
 		{
@@ -97,10 +108,6 @@ namespace Negocio
 			{
 				throw ex;
 			}
-			finally
-			{
-				datos.cerrarConexion();
-			}
 		}
 		public Articulo ultimoRegistro()
 		{
@@ -118,7 +125,11 @@ namespace Negocio
 			{
 				throw ex;
 			}
-		}
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
@@ -186,6 +197,10 @@ namespace Negocio
 			{
 				throw ex;
 			}
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
 		public Articulo leerDatos(AccesoDatos datos)
@@ -217,10 +232,6 @@ namespace Negocio
 			catch (Exception ex)
 			{
 				throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
             }
         }
     }
